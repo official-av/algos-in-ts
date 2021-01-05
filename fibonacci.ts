@@ -1,6 +1,6 @@
 import { performance } from 'perf_hooks';
 
-// naive approach via recursion
+// naive approach via recursion O(exp)
 const recursiveFib = (n: number): number => {
     if (n > 1) {
         return recursiveFib(n - 1) + recursiveFib(n - 2);
@@ -8,7 +8,7 @@ const recursiveFib = (n: number): number => {
     else return 1;
 }
 
-// call stack optimisefd recursive approach
+// call stack optimised recursive approach O(exp)
 
 const fibArr = [0, 1];
 const optimisedRecursiveFib = (n: number) => {
@@ -22,7 +22,7 @@ const optimisedRecursiveFib = (n: number) => {
     } else return 1;
 }
 
-// looping for linear time
+// looping for linear time O(n)
 const linearFib = (n: number): number => {
     for (let i = 2; i < n + 1; i++) // calculate fib till nth element
     {
@@ -31,7 +31,7 @@ const linearFib = (n: number): number => {
     return fibArr[n];
 }
 
-// to optimise space we can store only last two nos. instead of having array
+// to optimise space we can store only last two nos. instead of having array O(n)
 const spaceOptimisedLinearFib = (n: number): number => {
     let a = 0; let b = 1; let sum = 0;
     while (n >= 2) // calculate fib till nth element
@@ -44,7 +44,7 @@ const spaceOptimisedLinearFib = (n: number): number => {
     return sum;
 }
 
-// for constant time use formula ((sqrt(5)+1)/2)^n)/sqrt(5)
+// for constant time use formula ((sqrt(5)+1)/2)^n)/sqrt(5) O(1)
 const constantTimeFib = (n: number): number => {
     let x = (Math.sqrt(5) + 1) / 2;
     let y = Math.pow(x, n) / Math.sqrt(5);
